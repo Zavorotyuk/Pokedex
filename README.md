@@ -23,4 +23,3 @@ Also for project development was used framework Bootstrap
 
 To run the application you need to open the file **index.html**   in your browser 
 
-"# Pokedex" 
