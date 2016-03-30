@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" ng-app="pokemonsApp">
+<head>
+     <meta charset="utf-8">
+     <title>Pokedex</title>
+     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+     <link rel="stylesheet" href="css/style.css">
+     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+</head>
+
+<body ng-controller="PokemonsList">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+
+      <a class="navbar-brand" href="#">POKEDEX</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+
+      <form class="navbar-form navbar-right">
+        <input type="text" class="form-control" placeholder="Filter" ng-model="query" >
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="maindiv">
+
+
+     <div class="container">
+         <div class="inform1" ng-show="showPokemon(pokemon)" ng-repeat="pokemon in pokemons">
+             <img src="{{pokemon.imgURL}}" width="90%" height="35%" class="img-thumbnail" alt="Cinque Terre" id="imgShow"><br>
+            <span id="showName"> {{pokemon.name}}</span>
+             <table  id="tbl">
+                 <tr>
+                     <td >Name</td>
+                     <td>{{pokemon.name}}</td>
+                 </tr>
+                 <tr>
+                 <td>type</td>
+                     <td>{{pokemon.type}}</td>
+                 </tr>
+                 <tr>
+                     <td>Attack</td>
+                     <td>{{pokemon.Attack}}</td>
+                 </tr>
+                 <tr>
+                     <td>Defence</td>
+                     <td>{{pokemon.Defence}}</td>
+                 </tr>
+                 <tr>
+                     <td>SP Attack</td>
+                     <td>{{pokemon.SP_Attack}}</td>
+                 </tr>
+                 <tr>
+                     <td>SP Defence</td>
+                     <td>{{pokemon.SP_Defence}}</td>
+                 </tr>
+                 <tr>
+                     <td>Speed</td>
+                     <td>{{pokemon.Speed}}</td>
+                 </tr>
+                 <tr>
+                     <td>Weight</td>
+                     <td>{{pokemon.Weight}}</td>
+                 </tr>
+                 <tr>
+                     <td>Total moves</td>
+                     <td>{{pokemon.Total_moves}}</td>
+                 </tr>
+
+
+
+             </table>
+         </div>
+
+         <div class="inform2" ng-show="showPokemon(pokemonn)" ng-repeat="pokemonn in pokemons2">
+             <img src="{{pokemonn.imgURL}}" width="90%" height="35%" class="img-thumbnail" alt="Cinque Terre" id="imgShow1"><br>
+             <span id="showName1"> {{pokemonn.name}}</span>
+             <table  id="tbl1">
+                 <tr>
+                     <td >Name</td>
+                     <td>{{pokemonn.name}}</td>
+                 </tr>
+                 <tr>
+                     <td>type</td>
+                     <td>{{pokemonn.type}}</td>
+                 </tr>
+                 <tr>
+                     <td>Attack</td>
+                     <td>{{pokemonn.Attack}}</td>
+                 </tr>
+                 <tr>
+                     <td>Defence</td>
+                     <td>{{pokemonn.Defence}}</td>
+                 </tr>
+                 <tr>
+                     <td>SP Attack</td>
+                     <td>{{pokemonn.SP_Attack}}</td>
+                 </tr>
+                 <tr>
+                     <td>SP Defence</td>
+                     <td>{{pokemonn.SP_Defence}}</td>
+                 </tr>
+                 <tr>
+                     <td>Speed</td>
+                     <td>{{pokemonn.Speed}}</td>
+                 </tr>
+                 <tr>
+                     <td>Weight</td>
+                     <td>{{pokemonn.Weight}}</td>
+                 </tr>
+                 <tr>
+                     <td>Total moves</td>
+                     <td>{{pokemonn.Total_moves}}</td>
+                 </tr>
+
+
+
+             </table>
+         </div>
+
+        <div ng-repeat="pokemon in pokemons | filter:query"  class="div1"  ng-click="clickMe(pokemon)" >
+                 <img src="{{pokemon.imgURL}}" class="img-thumbnail" alt="Cinque Terre" id="img1">
+                 <p id="pokemonName">  {{pokemon.name}}</p>
+                 <h2> <span class="label label-default" id="type1">{{pokemon.type}}</span></h2>
+        </div>
+
+
+
+       <div ng-repeat="pokemonn in pokemons2 | filter:query" class="div2" ng-show="showM" ng-click="clickMe(pokemonn)">
+               <img src="{{pokemonn.imgURL}}"  class="img-thumbnail" alt="Cinque Terre" id="img2">
+               <p id="pokemonnName">  {{pokemonn.name}}</p>
+               <h2> <span class="label label-default" id="type2">{{pokemonn.type}}</span></h2>
+       </div>
+
+</div>
+
+</div>
+
+<input type="button" ng-click="showMore()" class="btn btn-primary btn-md" id="button" value="Load More" ng-show="hideB"><br>
+
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/controllers.js"></script>
+</body>
+</html>
